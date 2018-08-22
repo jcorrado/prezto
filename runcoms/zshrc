@@ -1,9 +1,6 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# -*- mode: shell-script -*-
+
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -11,3 +8,17 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+autoload -Uz promptinit; promptinit
+PURE_GIT_PULL=0
+prompt pure
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ls='ls -lh --color --group-directories-first'
+alias wget_head='wget -qSO /dev/null'
+alias mutt='mutt -F ~/.mutt/profiles/zoion/main'
+alias mutt_birchbox='mutt -F ~/.mutt/profiles/birchbox/main'
+alias feh="feh --action1 'fbsetbg %f'"
+alias emacs=emacsclient
