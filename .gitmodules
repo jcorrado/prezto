@@ -19,6 +19,7 @@
 [submodule "modules/prompt/functions/pure"]
 	path = modules/prompt/external/pure
 	url = git@github.com:jcorrado/pure.git
+        branch = v1.7.0_jcorrado
 [submodule "modules/fasd/external"]
 	path = modules/fasd/external
 	url = https://github.com/clvv/fasd.git
