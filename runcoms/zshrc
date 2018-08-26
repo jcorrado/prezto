@@ -13,6 +13,8 @@ autoload -Uz promptinit; promptinit
 PURE_GIT_PULL=0
 prompt pure
 
+export BACKGROUNDS=~/keep/backgrounds
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
