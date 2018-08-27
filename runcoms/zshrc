@@ -14,6 +14,10 @@ PURE_GIT_PULL=0
 PURE_CMD_MAX_EXEC_TIME=60
 prompt pure
 
+export EDITOR=emacsclient
+export PAGER=most
+export BROWSER=google-chrome
+
 export BACKGROUNDS=~/keep/backgrounds
 
 alias rm='rm -i'
