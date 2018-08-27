@@ -14,6 +14,8 @@ PURE_GIT_PULL=0
 PURE_CMD_MAX_EXEC_TIME=60
 prompt pure
 
+export BACKGROUNDS=~/keep/backgrounds
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
