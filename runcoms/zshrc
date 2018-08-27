@@ -11,6 +11,7 @@ fi
 
 autoload -Uz promptinit; promptinit
 PURE_GIT_PULL=0
+PURE_CMD_MAX_EXEC_TIME=60
 prompt pure
 
 alias rm='rm -i'
