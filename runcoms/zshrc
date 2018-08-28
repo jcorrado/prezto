@@ -44,7 +44,7 @@ function poll_mail {
 
 function rename_to_sha1 {
     for f in *(.); do
-        ext=$(echo $f | perl -ne '/\.([^.]+)$/ && print $1')
+        ext=$(echo $f | perl -F'\.' -ae 'print $F[-1]')
         sha1=$(sha1sum $f | perl -ae 'print $F[0]')
         mv -v "$f" "${sha1}.${ext}"
     done
