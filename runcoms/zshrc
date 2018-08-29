@@ -14,8 +14,10 @@ PURE_GIT_PULL=0
 PURE_CMD_MAX_EXEC_TIME=60
 prompt pure
 
-# disable obsessive screen clearing
-bindkey -r "^L"
+bindkey -N my-keymap emacs
+bindkey -A my-keymap main
+bindkey -r "^L"  # disable obsessive screen clearing
+bindkey "^U" backward-kill-line
 
 export EDITOR=emacsclient
 export PAGER=most
