@@ -179,7 +179,6 @@ zstyle ':prezto:module:syntax-highlighting' styles \
   'alias' 'bg=none' \
   'command' 'bg=none' \
   'function' 'bg=none' \
-  'path' 'fg=blue,bold' \
   'globbing' 'fg=white,bg=blue'
 
 # Set syntax pattern styles.
