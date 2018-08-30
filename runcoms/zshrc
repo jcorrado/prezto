@@ -51,3 +51,12 @@ function rename_to_sha1 {
         mv -v "$f" "${sha1}.${ext}"
     done
 }
+
+function check_conf_repos {
+    local repos=($HOME/.dotfiles*(/) .zprezto)
+    for r in $repos; do
+        echo -n "checking repo: ${r}... "
+        git -C $r fetch origin
+        echo done
+    done
+}
