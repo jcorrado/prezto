@@ -60,3 +60,15 @@ function check_conf_repos {
         echo done
     done
 }
+
+function precmd {
+    if [ ! -z "$TMUX" ]; then
+	tmux rename-window $(echo $PWD | shorten_path.pl)
+    fi
+}
+
+function preexec {
+    if [ ! -z "$TMUX" ]; then
+	tmux rename-window $1
+    fi
+}
