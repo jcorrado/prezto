@@ -82,3 +82,6 @@ function fix_ssh_env_vars {
         export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
     fi
 }
+
+fix_ssh_env_vars
+
