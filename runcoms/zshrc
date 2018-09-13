@@ -72,3 +72,13 @@ function preexec {
 	tmux rename-window $1
     fi
 }
+
+# Xsession sets these but sometimes they get munged by ssh+tmux... and
+# I haven't had a chance to work out why, so we just force this again
+# here for shells.
+function fix_ssh_env_vars {
+    if [ -n "$(gpgconf --list-options gpg-agent | \
+      awk -F: '/^enable-ssh-support:/{ print $10 }')" ]; then
+        export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    fi
+}
