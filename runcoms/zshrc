@@ -53,7 +53,8 @@ function rename_to_sha1 {
 }
 
 function check_conf_repos {
-    local repos=(~/.dotfiles*(/) ~/.zprezto)
+    local repos
+    repos=(~/.dotfiles*(/) ~/.zprezto)
     for r in $repos; do
         echo -n "checking repo: ${r}... "
         git -C $r fetch origin
