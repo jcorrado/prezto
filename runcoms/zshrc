@@ -87,3 +87,11 @@ function fix_ssh_env_vars {
 }
 
 fix_ssh_env_vars
+
+# I'm still thinking through how to handle the long-lines/f-f
+# question, for mail and other cases.  Here's a quick fn that helps
+# clean up files that I then move to Google Docs, GitHub Markdown,
+# wikis, etc.
+function lengthen-lines {
+    perl -p0e 's!([^\n\s])\n([^\n])!$1 $2!g' $1
+}
