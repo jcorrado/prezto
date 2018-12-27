@@ -130,3 +130,11 @@ function lengthen-lines {
 #     local iter=$1
 #     _scan-photo 112 87 $iter
 # }
+
+function aws-ecs-list-tasks {
+    local profile=$1
+    local cluster=$2
+    ( for i in $(aws --profile=$profile ecs list-tasks --cluster=$cluster | jq -r '.taskArns | .[]'); do
+          aws --profile=$profile ecs describe-tasks --cluster=$cluster --task=$i | jq -r '.tasks[] | .overrides.containerOverrides[] | .name'
+      done ) | sort | uniq -c
+}
