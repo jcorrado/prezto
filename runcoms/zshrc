@@ -138,3 +138,22 @@ function aws-ecs-list-tasks {
           aws --profile=$profile ecs describe-tasks --cluster=$cluster --task=$i | jq -r '.tasks[] | .overrides.containerOverrides[] | .name'
       done ) | sort | uniq -c
 }
+
+function emacs-save-remote-buffers {
+    local remote_host=$1
+    if [ -z "$remote_host" ]; then
+        case $HOST in
+            elder-whale)
+                remote_host=buttercup
+                ;;
+            buttercup)
+                remote_host=elder-whale
+                ;;
+            *)
+                echo "please supply a hostname"
+                return 1
+                ;;
+        esac
+    fi
+    ssh $remote_host "emacsclient -e '(save-some-buffers t)'"
+}
