@@ -155,5 +155,5 @@ function emacs-save-remote-buffers {
                 ;;
         esac
     fi
-    ssh $remote_host "emacsclient -e '(save-some-buffers t)'"
+    ssh $remote_host "emacsclient -e '(if (save-some-buffers t) \"buffers saved\" \"no unsaved buffers\")'"
 }
