@@ -58,7 +58,7 @@ function check_conf_repos {
     for r in $repos; do
         echo -n "checking repo: ${r}... "
         git -C $r fetch origin
-        echo done
+        echo -e "done\n"
     done
 }
 
