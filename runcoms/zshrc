@@ -34,6 +34,7 @@ alias mutt='mutt -F ~/.mutt/profiles/zoion/main'
 alias mutt_birchbox='mutt -F ~/.mutt/profiles/birchbox/main'
 alias feh="feh --auto-zoom --action1 'fbsetbg %f'"
 alias emacs=emacsclient
+alias dropbox="sudo docker run -d --restart=always --name=dropbox -v $HOME/Dropbox:/dbox/Dropbox janeczku/dropbox"
 
 function poll_mail {
     local interval=${1:=120}
