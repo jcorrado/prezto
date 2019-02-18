@@ -22,6 +22,7 @@ bindkey "^U" backward-kill-line
 export EDITOR=emacsclient
 export PAGER=most
 export BROWSER=google-chrome
+export SANE_DEFAULT_DEVICE="genesys:libusb:003:004"
 
 export BACKGROUNDS=~/keep/backgrounds
 
@@ -97,15 +98,15 @@ function lengthen-lines {
     perl -p0e 's!([^\n\s])\n([^\n])!$1 $2!g' $1
 }
 
-# function _scan-photo {
-#     local x=${1:=125}
-#     local y=${2:=125}
-#     local iter=${3:=000}
-#     setopt noclobber
-#     local filename="img_${iter}.png"
-#     scanimage --format=png --mode=Color --resolution=300 --depth=8 -x $x -y $y > $filename
-#     feh $filename
-# }
+function _scan-photo {
+    local x=${1:=125}
+    local y=${2:=125}
+    local iter=${3:=000}
+    setopt noclobber
+    local filename="img_${iter}.png"
+    scanimage --format=png --mode=Color --resolution=300 --depth=8 -x $x -y $y > $filename
+    feh $filename
+}
 
 # function scan-photo-small-portrait {
 #     local iter=$1
@@ -131,6 +132,11 @@ function lengthen-lines {
 #     local iter=$1
 #     _scan-photo 112 87 $iter
 # }
+
+function scan-photo-small-square {
+    local iter=$1
+    _scan-photo 115 115 $iter
+}
 
 function scan-us-letter {
     local base_name=${1:=letter}
