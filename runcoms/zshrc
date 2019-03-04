@@ -21,6 +21,7 @@ bindkey "^U" backward-kill-line
 
 export EDITOR=emacsclient
 export PAGER=most
+export KEYID=0x2A946D7DC9CB2D74
 export BROWSER=google-chrome
 export SANE_DEFAULT_DEVICE="genesys:libusb:003:004"
 
