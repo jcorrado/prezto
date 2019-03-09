@@ -174,3 +174,20 @@ function emacs-save-remote-buffers {
     fi
     ssh $remote_host "emacsclient -e '(if (save-some-buffers t) \"buffers saved\" \"no unsaved buffers\")'"
 }
+
+function copy_credentials {
+    local dst=$1
+    local creds
+    creds=(.password-store*(/)
+           .ssh
+           .gnupg
+           .dotfiles*(/)
+           .zprezto)
+
+    if [ -z $dst ] || ! [ -d $dst ]; then return 1; fi
+            
+    for src in $creds; do
+        rsync -avp --delete --delete-excluded --exclude .git \
+              "$HOME/$src/" "$dst/${src#.}"
+    done
+}
