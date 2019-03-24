@@ -81,10 +81,13 @@ function preexec {
 # I haven't had a chance to work out why, so we just force this again
 # here for shells.
 function fix_ssh_env_vars {
+    echo -n "running fix_ssh_env_vars: "
     agent_info_file="$HOME/.gnupg/gpg-agent-info-$(hostname)"
     if [ -e $agent_info_file ]; then
+        echo "sourcing existing gpg-agent-info file"
         source $agent_info_file
     else
+        echo "export SSH_AUTH_SOCK from gpgconf"
         export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
     fi
 }
