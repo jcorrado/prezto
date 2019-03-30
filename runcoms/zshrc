@@ -17,6 +17,8 @@ bindkey -A my-keymap main
 bindkey -r "^L"  # disable obsessive screen clearing
 bindkey "^U" backward-kill-line
 
+unsetopt CORRECT
+
 export EDITOR=emacsclient
 export PAGER=most
 export KEYID=0x2A946D7DC9CB2D74
