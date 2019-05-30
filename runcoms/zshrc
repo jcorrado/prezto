@@ -196,3 +196,10 @@ function copy_credentials {
               "$HOME/$src/" "$dst/${src#.}"
     done
 }
+
+function tmux_shift_win {
+    local cnt=${1:-1}
+    for i in $(seq $cnt); do
+        tmux swap-window -t -1
+    done
+}
