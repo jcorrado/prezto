@@ -36,7 +36,7 @@ alias wget_head='wget -qSO /dev/null'
 alias mutt='mutt -F ~/.mutt/profiles/zoion/main'
 alias mutt_birchbox='mutt -F ~/.mutt/profiles/birchbox/main'
 alias mutt_teammobot='mutt -F ~/.mutt/profiles/teammobot/main'
-alias feh="feh --auto-zoom --action1 'fbsetbg %f'"
+alias feh="feh --auto-zoom --action1 'fbsetbg -a %f'"
 alias emacs=emacsclient
 alias dropbox="sudo docker run -d --restart=always --name=dropbox -v $HOME/Dropbox:/dbox/Dropbox janeczku/dropbox"
 alias ssh="ssh -R ~/.ssh/emacs-server:$EMACS_SERVER_SOCK"
